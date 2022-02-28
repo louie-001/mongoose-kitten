@@ -1,6 +1,10 @@
 # Mongoose之Express中实现ORM
-## Mongoose 介绍
 
+## Mongoose 介绍
+来自官网 https://mongoosejs.com/ 的介绍：
+> elegant mongodb object modeling for node.js
+
+Node.js中，关系型数据库的ORM框架有 TypeOrm、Sequelize、Prisma等，而MongoDB的ORM框架mongoose应该为首选。Mongoose提供了基于Schema结构定义的数据模型，以及开箱即用的内置数据验证、查询构建等功能，如果你是一个Java开发者，那么mongoose提供了类似Spring Data JPA、Mybatis Plus的开发体验。
 
 ## 初始化工程
 我们创建一个用于小猫（kitten）信息维护的ExpressJS工程mongoose-kitten，数据结构如下：
@@ -472,5 +476,6 @@ module.exports = {
 ---
 以上，完成了kittens的信息维护API，启动服务，通过 `http://localhost:3000/kittens` 进行API访问。
 
-> 1. 该内容中的所有逻辑、代码均以演示为目的，严谨性和可靠性不在考虑范围
-> 2. 所有demo代码已上传github：[https://github.com/louie-001/mongoose-kitten.git](https://github.com/louie-001/mongoose-kitten.git)
+1. 该内容中的所有逻辑、代码均以演示为目的，严谨性和可靠性不在考虑范围
+2. 所有demo代码已上传github：[https://github.com/louie-001/mongoose-kitten.git](https://github.com/louie-001/mongoose-kitten.git)
+3. 博客一同步 https://juejin.cn/post/7069689169349443591
