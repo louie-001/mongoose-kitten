@@ -8,9 +8,9 @@ const detail = (id) => kittenModel.findById(id);
 
 const getKitten = (id) => (id ? detail(id) : listAll());
 
-const remove = (id) => kittenModel.remove()
+const remove = (id) => kittenModel.remove();
 
-const modify = (id, kitten) => kittenModel.modify(id, kitten)
+const modify = (id, kitten) => kittenModel.modify(id, kitten);
 
 /**
  * 捡到了一只小猫咪，记录它的颜色信息
@@ -48,9 +48,12 @@ const removeColor = (id, colorId) =>
  */
 const modifyColor = (id, { id: colorId, name }) =>
   kittenModel.findById(id).then((kitten) => {
-    kitten.colors.id(colorId).name = name
+    kitten.colors.id(colorId).name = name;
     return kitten.save();
   });
+
+const colorDetail = (colorId) => kittenModel.findOne({ "colors.id": colorId })
+  .then(kitten => kitten.colors.id(colorId))
 
 module.exports = {
   getKitten,
@@ -60,4 +63,5 @@ module.exports = {
   setColor,
   removeColor,
   modifyColor,
+  colorDetail,
 };

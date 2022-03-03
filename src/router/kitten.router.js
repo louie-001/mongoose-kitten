@@ -85,4 +85,12 @@ router.put("/color/:id", (req, res) => {
   });
 });
 
+router.get('/color/:id', (req, res) => {
+  const colorId = req.params.id
+  kittenService.colorDetail(colorId)
+    .then(result => {
+      res.send(result)
+    })
+})
+
 module.exports = router;
