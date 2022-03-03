@@ -24,6 +24,12 @@ const setColor = (id, color) =>
     return kitten.save();
   });
 
+const setColors = (id, colors) => {
+  kittenModel.findById(id).then((kitten) => {
+    kitten.colors.push(colors.map((name) => ({ name })));
+  });
+};
+
 /**
  * 一个颜色是脏东西，洗干净后没有了
  * @param {String} id kitten's primary key
@@ -52,8 +58,10 @@ const modifyColor = (id, { id: colorId, name }) =>
     return kitten.save();
   });
 
-const colorDetail = (colorId) => kittenModel.findOne({ "colors.id": colorId })
-  .then(kitten => kitten.colors.id(colorId))
+const colorDetail = (colorId) =>
+  kittenModel
+    .findOne({ "colors.id": colorId })
+    .then((kitten) => kitten.colors.id(colorId));
 
 module.exports = {
   getKitten,
